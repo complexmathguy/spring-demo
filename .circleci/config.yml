@@ -38,8 +38,9 @@ jobs:
         # required env vars
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: yes
+            MYSQL_USER: root
             MYSQL_ROOT_PASSWORD: letmein2
-            MYSQL_DATABASE: circleci
+            MYSQL_DATABASE: spring-demo
 
     # env var assignments
     environment:
