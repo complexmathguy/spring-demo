@@ -37,18 +37,19 @@ jobs:
       - image: mysql:8.0
         # required env vars
         environment:
-            MYSQL_ALLOW_EMPTY_PASSWORD: yes
-            MYSQL_USER: root
-            MYSQL_ROOT_PASSWORD: letmein2
-            MYSQL_DATABASE: spring-demo
+          MYSQL_ROOT_PASSWORD: letmein2
+          MYSQL_DATABASE: testdb
+          MYSQL_USER: user
+          MYSQL_PASSWORD: letmein2
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes            
 
     # env var assignments
     environment:
-        DATABASE_USERNAME: root
+        DATABASE_USERNAME: user
         DATABASE_PASSWORD: letmein2
         DATABASE_DIALECT: org.hibernate.dialect.MySQL8Dialect
         DATABASE_DRIVER: com.mysql.jdbc.Driver
-        DATABASE_URL: jdbc:mysql://localhost:3306/spring-demo?createDatabaseIfNotExist=true
+        DATABASE_URL: jdbc:mysql://localhost:3306/testdb?createDatabaseIfNotExist=true
         
 
     # steps the core build test job
