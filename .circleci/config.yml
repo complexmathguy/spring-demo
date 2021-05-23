@@ -38,7 +38,7 @@ jobs:
         # required env vars
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: yes
-            MYSQL_ROOT_PASSWORD: ''
+            MYSQL_ROOT_PASSWORD: letmein2
             MYSQL_DATABASE: circleci
 
     # env var assignments
