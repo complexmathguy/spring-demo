@@ -1,0 +1,10 @@
+- service: spring-demoService
+  name: Build Project spring-demo
+  command: ./gitRoot/projectbuild.sh
+- service: adddocker
+  type: push
+  name: Docker Build and Push
+  image_name: realmethods/spring-demo
+  image_tag: latest
+  registry: https://index.docker.io/v1/
+  encrypted_dockercfg_path: .dockercfg

@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  db:
+    image:mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: letmein2
+      MYSQL_DATABASE: developmentdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+
+  platform:
+    image: theharbormaster/spring-demo:latest
+    ports:
+      - "8080:8080"
+    environment:
+      MYSQL_ROOT_PASSWORD: letmein2
+      MYSQL_DATABASE: developmentdb
+    depends_on:
+      - db
+    links:
+      - db
+

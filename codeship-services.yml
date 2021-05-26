@@ -1,0 +1,18 @@
+spring-demoService:
+  build:
+    image: spring-demo
+    dockerfile: Dockerfile_For_Setup
+  cached: true
+  volumes:
+    - ./tmp/code:/code 
+adddocker:
+  build:
+    image: realmethods/spring-demo
+    dockerfile: Dockerfile_For_CodeShip
+  volumes_from:
+    - spring-demoService
+terraform:
+  build:
+    dockerfile: Dockerfile_For_Terraform
+  volumes_from:
+    - spring-demoService
